@@ -1,25 +1,40 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Showcase from './components/Showcase'; // ✅ القسم الجديد
-import CallToAction from './components/CallToAction';
-import Footer from './components/Footer';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export default function App() {
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import FeaturesSection from "./components/FeaturesSection";
+import Footer from "./components/Footer";
+import Login from "./pages/Login"; // تأكد من اسم الملف
+
+function App() {
   return (
     <Router>
-      <div className="font-sans text-gray-900 bg-white">
-        <Header />
-        <main className="space-y-20">
-          <Hero />
-          <Features />
-          <Showcase /> {/* ✅ عرض الصور التوضيحية */}
-          <CallToAction />
+      <div className="flex flex-col min-h-screen">
+        {/* الشريط العلوي */}
+        <Navbar />
+
+        {/* المحتوى الأساسي للصفحات */}
+        <main className="flex-grow">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <HeroSection />
+                  <FeaturesSection />
+                </>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+          </Routes>
         </main>
+
+        {/* الفوتر */}
         <Footer />
       </div>
     </Router>
   );
 }
+
+export default App;
