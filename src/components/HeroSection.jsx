@@ -8,7 +8,7 @@ export default function HeroSection() {
 </h1>
       <p className="text-lg md:text-2xl mb-8">وخلّي التركيز على الطعم، مش الإدارة.</p>
       <button className="bg-white text-blue-900 font-semibold py-3 px-6 rounded-full text-lg hover:bg-blue-200 transition">
-         نجرب 😎
+         نجرب يلا بينا😎
       </button>
     </section>
   );
